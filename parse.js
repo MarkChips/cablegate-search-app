@@ -7,7 +7,7 @@ const { MongoClient } = require("mongodb");
 
 // MongoDB configuration
 const mongoUri = process.env.MONGO_URI;
-const client = new MongoClient(mongoUri, { useUnifiedTopology: true });
+const client = new MongoClient(mongoUri);
 const dbName = "cablegate";
 const collectionName = "documents";
 const tfidf = new natural.TfIdf();
