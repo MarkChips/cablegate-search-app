@@ -61,13 +61,12 @@ function parseCableHtml(html, fileName, year, month) {
     }
 
     // Tags
-    if (line.startsWith("TAGS:")) {
+    else if (line.startsWith("TAGS:")) {
       doc.tags = line.substring(5).trim().split(/\s+/); // e.g., ["PTER", "UG"]
     }
 
     // Body starts after numbered paragraph
-    if (line.match(/^[1.]\.\s+/)) {
-      // "1.  "
+    else if (line.match(/^[1.]\.\s+/)) {
       bodyStartIndex = i;
       break;
     }
@@ -105,7 +104,7 @@ async function processCablegateFiles() {
     const collection = db.collection(collectionName);
 
     const files = await fs.readdir(baseDir, { recursive: true });
-    const htmlFiles = files.filter((file) => file.endsWith(".html")); // seems to be that all files in the cable directory end in .html
+    const htmlFiles = files.filter((file) => file.endsWith(".html"));
 
     console.log(`Found ${htmlFiles.length} HTML files`);
 
