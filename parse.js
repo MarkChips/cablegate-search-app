@@ -16,12 +16,12 @@ const tfidf = new natural.TfIdf();
 const baseDir = "./cable";
 
 // Function to parse HTML content
-function parseCableHtml(html, fileName) {
+function parseCableHtml(html, fileName, year, month) {
   const $ = cheerio.load(html);
   const doc = {
-    _id: fileName.match(/(\d{2}[A-Z]+\d+)/)[1], // e.g., "88KAMPALA1783"
-    year: parseInt(fileName.slice(0, 4)), // e.g., 1988
-    month: parseInt(fileName.slice(5, 7)), // e.g., 05
+    _id: fileName,
+    year: year,
+    month: month,
   };
 
   // Extract table metadata
@@ -115,8 +115,13 @@ async function processCablegateFiles() {
       const filePath = path.join(baseDir, file);
       const fileName = path.basename(file, ".html");
 
+      // Extract year and month from directory structure
+      const pathParts = file.split(path.sep);
+      const year = parseInt(pathParts[1], 10);
+      const month = parseInt(pathParts[2], 10);
+
       const html = await fs.readFile(filePath, "utf8");
-      const doc = parseCableHtml(html, fileName);
+      const doc = parseCableHtml(html, fileName, year, month);
       documents.push(doc);
 
       // Batch processing
