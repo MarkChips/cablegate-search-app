@@ -116,8 +116,8 @@ async function processCablegateFiles() {
 
       // Extract year and month from directory structure
       const pathParts = file.split(path.sep);
-      const year = parseInt(pathParts[1], 10);
-      const month = parseInt(pathParts[2], 10);
+      const year = parseInt(pathParts[0], 10);
+      const month = parseInt(pathParts[1], 10);
 
       const html = await fs.readFile(filePath, "utf8");
       const doc = parseCableHtml(html, fileName, year, month);
