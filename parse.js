@@ -66,7 +66,7 @@ function parseCableHtml(html, fileName, year, month) {
     }
 
     // Body starts after numbered paragraph
-    else if (line.match(/^[1.]\.\s+/)) {
+    else if (line.match(/^\¶[1.]\.\s+/)) {
       bodyStartIndex = i;
       break;
     }
