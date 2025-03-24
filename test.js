@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const cheerio = require("cheerio");
 
-const baseDir = "./test-set/1975";
+const baseDir = "./test-set";
 
 // Function to parse HTML content
 function parseCableHtml(html, fileName, year, month) {
@@ -41,13 +41,11 @@ function parseCableHtml(html, fileName, year, month) {
   // Parse body text
   const bodyLines = bodyText.split("\n").map((line) => line.trim());
 
-  console.log(`-------------- ${fileName} cable length:`, bodyLines.length);
+  console.log(`\n-------------- ${fileName} cable length:`, bodyLines.length);
 
   let bodyStartIndex = 0;
   for (let i = 0; i < bodyLines.length; i++) {
     const line = bodyLines[i];
-
-    // console.log(i, line);
 
     // Subject
     if (line.startsWith("SUBJECT:")) {
@@ -60,16 +58,14 @@ function parseCableHtml(html, fileName, year, month) {
     }
 
     // Body starts after numbered paragraph
-    else if (line.match(/^\¶[1.]\.\s+/)) {
+    else if (line.match(/^SUMMARY:\s+|^\¶[1.]\.\s+/)) {
       bodyStartIndex = i;
-      console.log("regex matched:", bodyStartIndex);
+      console.log("regex matched on line:", bodyStartIndex, "\n", line);
       break;
     }
   }
   // Extract full body
   doc.body = bodyLines.slice(bodyStartIndex).join("\n").trim();
-
-  console.log(doc.body);
 
   return doc;
 }
