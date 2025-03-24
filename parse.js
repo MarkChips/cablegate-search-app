@@ -107,10 +107,12 @@ async function processCablegateFiles() {
     const files = await fs.readdir(baseDir, { recursive: true });
     const htmlFiles = files.filter((file) => file.endsWith(".html"));
 
-    console.log(`Found ${htmlFiles.length} HTML files`);
+    let progress = 0;
+    const total = htmlFiles.length;
+    console.log(`Found ${total} HTML files`);
 
     const documents = [];
-    for (let i = 0; i < htmlFiles.length; i++) {
+    for (let i = 0; i < total; i++) {
       const file = htmlFiles[i];
       const filePath = path.join(baseDir, file);
       const fileName = path.basename(file, ".html");
@@ -130,8 +132,12 @@ async function processCablegateFiles() {
         for (let j = 0; j < documents.length; j++) {
           documents[j].keywords = extractKeywords(i - documents.length + j + 1);
         }
+        progress += documents.length;
         await collection.insertMany(documents, { ordered: false });
-        console.log(`Inserted ${documents.length} documents`);
+        console.log(
+          `Inserted ${documents.length} documents.`,
+          parseInt((progress / total) * 100, 10) + "% completed"
+        );
         documents.length = 0;
       }
     }
@@ -139,9 +145,7 @@ async function processCablegateFiles() {
     // Process remaining documents
     if (documents.length > 0) {
       for (let j = 0; j < documents.length; j++) {
-        documents[j].keywords = extractKeywords(
-          htmlFiles.length - documents.length + j
-        );
+        documents[j].keywords = extractKeywords(total - documents.length + j);
       }
       await collection.insertMany(documents, { ordered: false });
       console.log(`Inserted ${documents.length} documents`);
