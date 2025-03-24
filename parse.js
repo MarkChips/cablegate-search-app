@@ -56,8 +56,9 @@ function parseCableHtml(html, fileName, year, month) {
     const line = bodyLines[i];
 
     // Subject
-    if (line.startsWith("SUBJECT:")) {
-      doc.subject = line.substring(8).trim(); // e.g., "ANNUAL TERRORISM REPORT--STATUS OF PLO IN UGANDA"
+    if (line.match(/^SUBJ(ECT)?:\s+/)) {
+      const subjectStartIndex = line.startsWith("SUBJECT:") ? 8 : 5;
+      doc.subject = line.substring(subjectStartIndex).trim(); // e.g., "ANNUAL TERRORISM REPORT--STATUS OF PLO IN UGANDA"
     }
 
     // Tags

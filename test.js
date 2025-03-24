@@ -41,26 +41,27 @@ function parseCableHtml(html, fileName, year, month) {
   // Parse body text
   const bodyLines = bodyText.split("\n").map((line) => line.trim());
 
-  console.log(`\n-------------- ${fileName} cable length:`, bodyLines.length);
+  // console.log(`\n-------------- ${fileName} cable length:`, bodyLines.length);
 
   let bodyStartIndex = 0;
   for (let i = 0; i < bodyLines.length; i++) {
     const line = bodyLines[i];
 
     // Subject
-    if (line.startsWith("SUBJECT:")) {
-      doc.subject = line.substring(8).trim(); // e.g., "ANNUAL TERRORISM REPORT--STATUS OF PLO IN UGANDA"
+    if (line.match(/^SUBJ(ECT)?:\s+/)) {
+      const subjectStartIndex = line.startsWith("SUBJECT:") ? 8 : 5;
+      doc.subject = line.substring(subjectStartIndex).trim(); // e.g., "ANNUAL TERRORISM REPORT--STATUS OF PLO IN UGANDA"
     }
 
     // Tags
-    else if (line.startsWith("TAGS:")) {
+    else if (line.startsWith("TAGS: ")) {
       doc.tags = line.substring(5).trim().split(/\s+/); // e.g., ["PTER", "UG"]
     }
 
     // Body starts after numbered paragraph
     else if (line.match(/^SUMMARY:\s+|^\¶[1.]\.\s+/)) {
       bodyStartIndex = i;
-      console.log("regex matched on line:", bodyStartIndex, "\n", line);
+      // console.log("regex matched on line:", bodyStartIndex, "\n", line);
       break;
     }
   }
@@ -94,6 +95,8 @@ async function processCablegateFiles() {
     const doc = parseCableHtml(html, fileName, year, month);
     documents.push(doc);
   }
+
+  console.log(documents);
 }
 
 processCablegateFiles();
