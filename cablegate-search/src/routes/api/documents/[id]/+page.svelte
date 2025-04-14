@@ -37,13 +37,10 @@
 {#if document}
 	<h2 class="text-xl">{document.subject || 'No Subject'}</h2>
 	<p><strong>ID:</strong> {document._id}</p>
-	<p><strong>Year:</strong> {document.year}</p>
-	<p><strong>Month:</strong> {document.month}</p>
 	<p><strong>Created:</strong> {new Date(document.created).toLocaleDateString()}</p>
 	<p><strong>Released:</strong> {new Date(document.released).toLocaleDateString()}</p>
 	<p><strong>Classification:</strong> {document.classification}</p>
 	<p><strong>Origin:</strong> {document.origin}</p>
-	<p><strong>From:</strong> {document.from || 'N/A'}</p>
 	<p><strong>To:</strong> {document.to || 'N/A'}</p>
 	<p><strong>Tags:</strong> {document.tags?.join(', ') || 'None'}</p>
 	<p><strong>Keywords:</strong> {document.keywords?.join(', ') || 'None'}</p>
