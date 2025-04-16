@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
 	import { writable } from 'svelte/store';
+	import '../app.css';
 
 	interface SearchParams {
 		q: string;
