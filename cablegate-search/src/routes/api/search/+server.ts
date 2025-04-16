@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({ url }) => {
     const tags = url.searchParams.get('tags') || '';
     const classification = url.searchParams.get('classification') || '';
     const page = parseInt(url.searchParams.get('page') || '1', 10);
-    const page_size = Math.min(parseInt(url.searchParams.get('page_size') || '10', 10), 50);
+    const page_size = Math.min(parseInt(url.searchParams.get('page_size') || '12', 12), 50);
 
     const collection = await getCollection();
     const query: Record<string, any> = {};
