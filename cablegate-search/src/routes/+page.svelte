@@ -191,7 +191,7 @@
 				<button
 					type="submit"
 					disabled={loading}
-					class="rounded-md bg-indigo-500 hover:bg-indigo-700 px-5 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					class="rounded-md bg-indigo-500 hover:bg-indigo-700 px-5 py-2 text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 				>
 					Search
 				</button>
@@ -211,14 +211,18 @@
 </form>
 
 {#if results.length}
-	<h2 class="text-xl mt-6">Results ({total})</h2>
-	<ul class="list-none p-0">
+	<h2 class="text-xl mt-6 ml-6">Results ({total})</h2>
+	<ul class="list-none grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
 		{#each results as doc}
-			<li class="my-4">
-				<a href={`/api/documents/${doc._id}`} class="text-blue-600 hover:underline">
-					{doc.subject || 'No Subject'} ({doc.created.split('T')[0]})
+			<li
+				class="m-4 px-4 pt-2 max-h-100 shadow-lg border border-gray-200 rounded-md overflow-hidden"
+			>
+				<a href={`/api/documents/${doc._id}`}>
+					<h3 class="text-indigo-600 hover:underline">
+						{doc.subject || 'No Subject'} ({doc.created.split('T')[0]})
+					</h3>
+					<p>{doc.body}...</p>
 				</a>
-				<p>{doc.body}...</p>
 			</li>
 		{/each}
 	</ul>
