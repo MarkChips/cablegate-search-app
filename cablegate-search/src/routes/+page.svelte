@@ -210,6 +210,7 @@
 	</div>
 </form>
 
+<a id="top" aria-label="start of results"></a>
 {#if results.length}
 	<h2 class="text-xl mt-4 ml-6">Results ({total})</h2>
 	<ul class="list-none grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
@@ -233,7 +234,7 @@
 			on:click={() => updatePage($searchParams.page - 1)}
 			class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 font-semibold disabled:bg-gray-400 disabled:text-white"
 		>
-			Previous
+			<a href="#top"> Previous </a>
 		</button>
 		<span
 			aria-current="page"
@@ -245,7 +246,7 @@
 			on:click={() => updatePage($searchParams.page + 1)}
 			class="relative inline-flex items-center rounded-r-md px-5 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 font-semibold disabled:bg-gray-400 disabled:text-white"
 		>
-			Next
+			<a href="#top"> Next </a>
 		</button>
 	</nav>
 {/if}
