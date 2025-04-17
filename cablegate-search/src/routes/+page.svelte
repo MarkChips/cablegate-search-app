@@ -211,11 +211,11 @@
 </form>
 
 {#if results.length}
-	<h2 class="text-xl mt-6 ml-6">Results ({total})</h2>
+	<h2 class="text-xl mt-4 ml-6">Results ({total})</h2>
 	<ul class="list-none grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
 		{#each results as doc}
 			<li
-				class="m-4 px-4 pt-2 max-h-100 shadow-lg border border-gray-200 rounded-md overflow-hidden"
+				class="m-2 px-4 pt-2 max-h-100 shadow-lg border border-gray-200 rounded-md overflow-hidden"
 			>
 				<a href={`/api/documents/${doc._id}`}>
 					<h3 class="text-indigo-600 hover:underline">
@@ -227,21 +227,25 @@
 		{/each}
 	</ul>
 
-	<div class="mt-4 flex gap-2 items-center">
+	<nav class="mb-6 mt-4 flex justify-center" aria-label="Pagination">
 		<button
 			disabled={$searchParams.page === 1 || loading}
 			on:click={() => updatePage($searchParams.page - 1)}
-			class="p-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
+			class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 font-semibold disabled:bg-gray-400 disabled:text-white"
 		>
 			Previous
 		</button>
-		<span>Page {$searchParams.page}</span>
+		<span
+			aria-current="page"
+			class="relative z-10 bg-indigo-600 w-20 pl-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+			>Page {$searchParams.page}</span
+		>
 		<button
 			disabled={$searchParams.page * $searchParams.page_size >= total || loading}
 			on:click={() => updatePage($searchParams.page + 1)}
-			class="p-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
+			class="relative inline-flex items-center rounded-r-md px-5 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 font-semibold disabled:bg-gray-400 disabled:text-white"
 		>
 			Next
 		</button>
-	</div>
+	</nav>
 {/if}
