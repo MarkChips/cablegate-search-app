@@ -28,6 +28,7 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.4",
+		"mongodb": "^6.15.0",
 		"tailwindcss": "^4.1.4"
 	}
 }
