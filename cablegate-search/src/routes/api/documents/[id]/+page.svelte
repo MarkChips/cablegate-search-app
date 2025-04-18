@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 
 	let document: any = null;
@@ -9,7 +8,7 @@
 
 	onMount(async () => {
 		try {
-			const res = await fetch(`/api/documents/${$page.params.id}`);
+			const res = await fetch(`/api/documents/${page.params.id}`);
 			const data = await res.json();
 			if (data.error) {
 				error = data.error + (data.details ? `: ${data.details}` : '');
