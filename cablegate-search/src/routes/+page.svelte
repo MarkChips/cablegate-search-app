@@ -153,7 +153,7 @@
 		</div>
 
 		<div class="flex col-span-full items-end">
-			<div class="sm:w-1/3">
+			<div>
 				<label for="classification" class="block text-sm/6 font-medium text-gray-900"
 					>Classification:
 				</label>
@@ -164,10 +164,15 @@
 						id="classification"
 						class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
 					>
-						<option></option>
+						<option value="">-- Any --</option>
 						<option>UNCLASSIFIED</option>
 						<option>CONFIDENTIAL</option>
 						<option>SECRET</option>
+						<option>UNCLASSIFIED//FOR OFFICIAL USE ONLY</option>
+						<option value="CONFIDENTIAL//NOFORN"
+							>CONFIDENTIAL//NOFORN - (No Foreign Distribution)</option
+						>
+						<option value="SECRET//NOFORN">SECRET//NOFORN - (No Foreign Distribution)</option>
 					</select>
 					<svg
 						class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
