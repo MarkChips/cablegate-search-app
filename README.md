@@ -2,6 +2,8 @@
 
 This project provides a web application for searching and viewing Cablegate documents, leveraging a MongoDB database and a SvelteKit frontend. The application allows users to search documents by keywords, filter by metadata (e.g., year, month, from, to, tags, classification), and view detailed document information. The data is parsed from HTML files and stored in MongoDB, with a focus on efficient keyword-based search.
 
+The live website can be viewed here: https://cablegate-search-app-gray.vercel.app/
+
 ## Project Structure
 
 ```
@@ -30,14 +32,14 @@ cablegate-data-engineering-and-search-application/
 - **Search**: Query documents by keywords (stored in the `keywords` array), with filters for year, month, from, to, tags, and classification.
 - **Document Details**: View full document metadata and body content by ID.
 - **Responsive UI**: Built with SvelteKit and styled using Tailwind CSS.
-- **MongoDB Backend**: Stores \~86,000 Cablegate documents in the `cablegate.documents` collection.
+- **MongoDB Backend**: Stores \~86,000 Cablegate documents (512 MB - max capacity on free tier) in the `cablegate.documents` collection.
 - **Deployment**: Deployed on Vercel with MongoDB Atlas integration.
 
 ## Prerequisites
 
 - **Node.js**: v18 or higher
 - **MongoDB Atlas**: Account with a cluster and `cablegate` database
-- **Vercel CLI**: For deployment
+- **Vercel**: For deployment
 - **Git**: For version control
 
 ## Setup Instructions
