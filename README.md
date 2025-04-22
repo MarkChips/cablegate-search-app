@@ -84,9 +84,29 @@ cd cablegate-data-engineering-and-search-application
    node parse.js
    ```
 
-   - Expected output: Documents inserted with fields like `_id`, `year`, `month`, `subject`, `body`, `keywords`, `tags`.
+   ### Data Model
 
-### 3. Set Up the SvelteKit App
+   Each cable/document is stored in MongoDB with a structure similar to:
+
+   ```
+   {
+   "_id": "06CARACAS3507",
+   "year": 2006,
+   "month": 11,
+   "created": "2006-11-30T22:05:00.000Z",
+   "released": "2011-08-30T00:44:00.000Z",
+   "classification": "CONFIDENTIAL",
+   "origin": "Embassy Caracas",
+   "from": "AMEMBASSY CARACAS",
+   "to": "RUEHC/SECSTATE WASHDC PRIORITY 7156",
+   "tags": ["PGOV", "PREL"],
+   "subject": "SUBJECT OF THE CABLE",
+   "body": "Full text of the cable...",
+   "keywords": ["oil", "election", "ambassador"]
+   }
+   ```
+
+### 4. Set Up the SvelteKit App
 
 1. **Navigate to** `cablegate-search`:
 
@@ -111,7 +131,7 @@ cd cablegate-data-engineering-and-search-application
    - Open `http://localhost:5173`.
    - Test search (e.g., “terrorism”) and document view (e.g., `/documents/8805KAMPALA1783`).
 
-### 4. Deploy to Vercel
+### 5. Deploy to Vercel
 
 1. **Push to GitHub**:
 
