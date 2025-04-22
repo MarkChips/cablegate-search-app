@@ -1,4 +1,6 @@
-require("dotenv").config();
+require("dotenv").config({
+  path: path.resolve(process.cwd(), "cablegate-search/.env"),
+});
 const fs = require("fs-extra");
 const path = require("path");
 const cheerio = require("cheerio");
