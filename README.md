@@ -177,3 +177,13 @@ cd cablegate-data-engineering-and-search-application
   - Paginate results using Previous/Next buttons.
 - **Document Page** (`/documents/<id>`):
   - Click on a result to be taken to the document page.
+
+## License
+
+MIT
+
+## Credits
+
+- [WikiLeaks Cablegate dataset](https://wikileaks.org/plusd/)
+- Built with [SvelteKit](https://kit.svelte.dev/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), and [Vercel](https://vercel.com/).
+- Brian Evans for the idea.
