@@ -61,10 +61,11 @@
 </script>
 
 <h1
-	class="my-2 text-center pb-2 text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight"
+	class="mt-2 pb-1 text-center text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight"
 >
 	Cablegate Search
 </h1>
+<h3 class="text-center italic">12/1966 - 11/2006</h3>
 
 <form on:submit|preventDefault={search} class="grid gap-4 max-w-xl mx-5 sm:mx-auto">
 	<div class="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
