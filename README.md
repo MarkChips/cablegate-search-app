@@ -4,6 +4,8 @@ This project provides a web application for searching and viewing Cablegate docu
 
 The live website can be viewed here: https://cablegate-search-app-gray.vercel.app/
 
+![Responsive Mockup](documentation/am-i-responsive.png)
+
 ## Index - Table of Contents
 
 - [Project Structure](#project-structure)
@@ -197,4 +199,5 @@ MIT
 
 - [WikiLeaks Cablegate dataset](https://wikileaks.org/plusd/)
 - Built with [SvelteKit](https://kit.svelte.dev/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), and [Vercel](https://vercel.com/).
+- [amiresponsive mockup image](https://ui.dev/amiresponsive)
 - Brian Evans for the idea.
