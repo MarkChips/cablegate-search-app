@@ -68,7 +68,7 @@
 <h3 class="text-center italic">12/1966 - 11/2006</h3>
 
 <form on:submit|preventDefault={search} class="grid gap-4 max-w-xl mx-5 sm:mx-auto">
-	<div class="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
+	<div class="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-6">
 		<div class="col-span-full">
 			<label for="keywords" class="block text-sm/6 font-medium text-gray-900">Search: </label>
 			<div class="mt-2">
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 
-		<div class="col-span-full">
+		<div class="sm:col-span-3 col-span-full">
 			<label for="from" class="block text-sm/6 font-medium text-gray-900">From: </label>
 			<div class="mt-2">
 				<input
@@ -125,7 +125,7 @@
 			</div>
 		</div>
 
-		<div class="col-span-full">
+		<div class="sm:col-span-3 col-span-full">
 			<label for="to" class="block text-sm/6 font-medium text-gray-900">To: </label>
 			<div class="mt-2">
 				<input
