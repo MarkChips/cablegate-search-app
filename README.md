@@ -4,6 +4,17 @@ This project provides a web application for searching and viewing Cablegate docu
 
 The live website can be viewed here: https://cablegate-search-app-gray.vercel.app/
 
+## Index - Table of Contents
+
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Setup Instructions](#setup-instructions)
+- [Data Model](#data-model)
+- [Usage](#usage)
+- [License](#license)
+- [Credits](#credits)
+
 ## Project Structure
 
 ```
@@ -175,7 +186,7 @@ cd cablegate-data-engineering-and-search-application
   - Enter a query (e.g., “terrorism”) to search the `keywords` field.
   - Filter by year, month, from, to, tags (comma-separated), or classification.
   - Paginate results using Previous/Next buttons.
-- **Document Page** (`/documents/<id>`):
+- **Document Page** (`/api/documents/<id>`):
   - Click on a result to be taken to the document page.
 
 ## License
