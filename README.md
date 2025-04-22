@@ -130,6 +130,9 @@ cd cablegate-data-engineering-and-search-application
      - Value: `<your-mongo-uri>`
    - Deploy the project.
 
+   **Note:**  
+   For production, ensure your MongoDB Atlas cluster allows connections from Vercel’s IP addresses. For dynamic IPs, you can set Atlas network access to `0.0.0.0/0`.
+
 3. **Alternative: Vercel-MongoDB Integration**:
 
    - In Vercel → **Integrations** → **MongoDB Atlas**, add the integration.
