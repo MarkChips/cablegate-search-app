@@ -8,6 +8,8 @@ This project provides a web application for searching and viewing Cablegate docu
 cablegate-data-engineering-and-search-application/
 ├── cable/                 # Raw Cablegate HTML files
 ├── parse.js               # Script to parse HTML and populate MongoDB
+├── test-set/              # Sample Raw Cablegate HTML files for local test parsing
+├── test.js                # Test Script to parse HTML and log to console the result
 ├── cablegate-search/      # SvelteKit frontend
 │   ├── src/
 │   │   ├── lib/server/mongodb.ts  # MongoDB connection logic
