@@ -27,14 +27,15 @@ cablegate-data-engineering-and-search-application/
 ├── test.js                # Test Script to parse HTML and log to console the result
 ├── cablegate-search/      # SvelteKit frontend
 │   ├── src/
-│   │   ├── lib/server/mongodb.ts  # MongoDB connection logic
+│   │   ├── lib/
+│   │   │   ├── app.css    # Tailwind CSS styles
+│   │   │   ├── server/mongodb.ts  # MongoDB connection logic
 │   │   ├── routes/
 │   │   │   ├── +page.svelte       # Search page
 │   │   │   ├── api/search/+server.ts  # Search API
 │   │   │   ├── api/documents/[id]/+server.ts  # Document API
 │   │   │   ├── api/documents/[id]/+page.svelte    # Document details page
 │   │   ├── app.html       # HTML template
-│   │   ├── app.css        # Tailwind CSS styles
 |   ├── .env               # MongoDB connection string (MONGO_URI)
 │   ├── package.json       # Dependencies
 │   ├── svelte.config.js   # SvelteKit config
