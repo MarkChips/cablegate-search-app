@@ -221,7 +221,7 @@
 			<li
 				class="m-2 px-4 pt-2 max-h-100 shadow-lg border border-gray-200 rounded-md overflow-hidden"
 			>
-				<a href={`/api/documents/${doc._id}`}>
+				<a href={`/api/documents/${doc._id}`} target="_blank">
 					<h3 class="text-indigo-600 hover:underline">
 						{doc.subject || 'No Subject'} ({doc.created.split('T')[0]})
 					</h3>
