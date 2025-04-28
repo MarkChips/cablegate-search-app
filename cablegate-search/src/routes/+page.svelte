@@ -65,7 +65,7 @@
 >
 	Cablegate Search
 </h1>
-<h3 class="text-center italic">12/1966 - 11/2006</h3>
+<h2 class="text-center italic">12/1966 - 11/2006</h2>
 
 <form on:submit|preventDefault={search} class="grid gap-4 max-w-xl mx-5 sm:mx-auto">
 	<div class="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-6">
