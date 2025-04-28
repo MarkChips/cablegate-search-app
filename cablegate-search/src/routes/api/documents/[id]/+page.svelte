@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
+	import '$lib/app.css';
 
 	let document: any = null;
 	let error = '';

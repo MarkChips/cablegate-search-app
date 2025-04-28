@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
-	import '../app.css';
+	import '$lib/app.css';
 
 	interface SearchParams {
 		q: string;
