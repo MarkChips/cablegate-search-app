@@ -30,10 +30,12 @@
 	let total = 0;
 	let error = '';
 	let loading = false;
+	let hasSearched = false;
 
 	async function search() {
 		loading = true;
 		error = '';
+		hasSearched = true;
 		const params = new URLSearchParams();
 		for (const [key, value] of Object.entries($searchParams)) {
 			if (value) params.set(key, value.toString());
@@ -219,7 +221,7 @@
 	<ul class="list-none grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
 		{#each results as doc}
 			<li
-				class="m-2 px-4 pt-2 max-h-100 shadow-lg border border-gray-200 rounded-md overflow-hidden"
+				class="search-result m-2 px-4 pt-2 max-h-100 shadow-lg border border-gray-200 rounded-md overflow-hidden"
 			>
 				<a href={`/api/documents/${doc._id}`} target="_blank">
 					<h3 class="text-indigo-600 hover:underline">
@@ -236,6 +238,7 @@
 			<button
 				disabled={$searchParams.page === 1 || loading}
 				on:click={() => updatePage($searchParams.page - 1)}
+				aria-label="Previous page"
 				class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 font-semibold disabled:bg-gray-400 disabled:text-white"
 			>
 				Previous
@@ -250,10 +253,13 @@
 			<button
 				disabled={$searchParams.page * $searchParams.page_size >= total || loading}
 				on:click={() => updatePage($searchParams.page + 1)}
+				aria-label="Next page"
 				class="relative inline-flex items-center rounded-r-md px-5 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 font-semibold disabled:bg-gray-400 disabled:text-white"
 			>
 				Next
 			</button>
 		</a>
 	</nav>
+{:else if hasSearched && !loading}
+	<p class="no-results mt-3 text-center text-gray-500">No results to display</p>
 {/if}
